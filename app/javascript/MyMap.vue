@@ -3,23 +3,34 @@
     <h1>Map</h1>
     <map-loader
       :map-config="mapConfig"
-      apiKey=Rails.application.credentials.google_maps_api_key>
+      apiKey="Rails.application.credentials.google_maps_api_key"
+
+      <template v-for="marker in markers">
+        <child-marker :position="marker" />
+      </template>
+    </map-loader>
   </div>
 </template>
 
 <script>
+import MapLoader from "./MapLoader.vue"
+import ChildMarker from './ChildMarker'
+
 export default {
-  data: function () {
+  props: {
+    markers: Array
+  },
+  data() {
     return {
-      message: "Hello Vue!"
+      mapConfig:{
+      zoom: 12,
+      center: this.markers[0]
     }
+    }
+  },
+  components: {
+    MapLoader,
+    ChildMarker
   }
 }
 </script>
-
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>
