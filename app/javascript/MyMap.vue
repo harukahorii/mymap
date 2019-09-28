@@ -3,7 +3,7 @@
     <h1>Map</h1>
     <map-loader
       :map-config="mapConfig"
-      apiKey="Rails.application.credentials.google_maps_api_key"
+      apiKey="Rails.application.credentials.google_maps_api"
 
       <template v-for="marker in markers">
         <child-marker :position="marker" />
