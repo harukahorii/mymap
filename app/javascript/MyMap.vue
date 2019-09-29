@@ -26,7 +26,7 @@ export default {
       zoom: 12,
       center: this.markers[0]
     }
-    }
+  }
   },
   components: {
     MapLoader,
